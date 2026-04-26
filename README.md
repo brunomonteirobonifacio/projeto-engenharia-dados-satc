@@ -6,7 +6,7 @@ Repositório para desenvolvimento do projeto da disciplina de Engenharia de Dado
 
 Abaixo está o diagrama arquitetural da pipeline desenvolvida para este projeto, mapeando o fluxo desde o ambiente de desenvolvimento até o armazenamento no Data Lakehouse.
 
-![Arquitetura da Pipeline de Dados](docs/Imagens/arquitetura.svg)
+![Arquitetura da Pipeline de Dados](docs/imagens/arquitetura.svg)
 
 **Fluxo de Dados:**
 1. Os comandos DDL e DML são escritos em Python através do **Jupyter Lab**.
@@ -20,22 +20,21 @@ Abaixo está o diagrama arquitetural da pipeline desenvolvida para este projeto,
 * **Linguagem:** Python 3.11+
 * **Processamento de Dados:** Apache Spark (PySpark)
 * **Formatos de Tabela (Lakehouse):** Delta Lake e Apache Iceberg
-* **Ambiente de Desenvolvimento:** Jupyter Labs / Jupyter Notebook
-* **Gerenciamento de Pacotes:** `Poetry`
+* **Ambiente de Desenvolvimento:** Jupyter Labs (Dockerizado)
+* **Gerenciador de Pacotes:** `Poetry`
 * **Documentação:** MkDocs + mkdocstrings + mkdocs-material
 
 ---
 
 ## Instalação e Configuração do Ambiente
 
-Siga o passo a passo abaixo para reproduzir o ambiente localmente.
-
 ### 1. Clonar o repositório
 
+bash
 ```
 git clone https://github.com/brunomonteirobonifacio/projeto-engenharia-dados-satc.git
 cd projeto-engenharia-dados-satc
-```
+'''
 
 ### 2. Configurar o ambiente virtual com poetry
 Instale as dependências (PySpark, Jupyter, MkDocs, etc.):
@@ -45,78 +44,54 @@ Instale as dependências (PySpark, Jupyter, MkDocs, etc.):
 poetry install
 ```
 
-### 3. Executar o Jupyter Labs
-Com o ambiente ativado e as bibliotecas instaladas, inicie o Jupyter para rodar os arquivos .ipynb:
+## 3. Iniciar o ambiente via Docker (Jupyter + Spark)
+O projeto utiliza o Docker para garantir que todo o ecossistema de dados rode de forma isolada. Para levantar os contêineres:
 
-```
-poetry run jupyter lab
-```
+Bash
+'''
+docker compose up -d
+'''
 
-Isso abrirá o Jupyter no seu navegador padrão. Acesse os arquivos referentes às implementações do Delta Lake e Apache Iceberg para ver os códigos (DDL, DML) em ação.
+Após o comando finalizar, acesse o Jupyter Lab em seu navegador:
+'''
+http://localhost:8888
+'''
+## Documentação (MkDocs)
+Toda a documentação técnica e explicação das operações ACID estão na pasta docs/.
 
-### Documentação (MkDocs)
-Toda a documentação conceitual e a explicação das operações (INSERT, UPDATE, DELETE e Versionamento) está na pasta docs/.
+Para visualizar localmente:
 
-Para construir a documentação estática:
-
-```
-poetry run mkdocs build
-```
-
-Para rodar o servidor local e visualizar a documentação:
-
-```
+Bash
+'''
 poetry run mkdocs serve
-```
+'''
+Acesse: http://127.0.0.1:8000
 
-### Publicação (Deploy)
-A documentação está publicada via GitHub Pages. Para atualizar o site público após alguma alteração, utilize:
-```
+## Para publicar no GitHub Pages:
+
+Bash
+'''
 poetry run mkdocs gh-deploy
-```
+'''
 
-### Colaboração
-Abra uma Issue para discutir sua nova feature ou reportar um bug.
+## Autores
+Bruno Monteiro - Implementação Delta Lake e Spark - GitHub
 
-Crie uma Branch para a sua modificação:
+Luis Filipe Damiani - Implementação Apache Iceberg e Notebooks - GitHub
 
-```
-git checkout -b feature/nome-da-sua-feature
-```
+Gianluca Andrade - Documentação MkDocs e Arquitetura - GitHub
 
-Faça suas alterações e realize o commit seguindo o padrão Conventional Commits.
-Envie um Pull Request para a branch main.
-Aguarde revisão e merge.
+## Referências
 
-### Versão
-
-Utilizamos o SemVer para controle de versionamento.
-
-Versão Atual: 1.0.0 - Entrega inicial do projeto da disciplina de Engenharia de Dados.
-
-### Autores
-
-Bruno Monteiro - Implementação Delta Lake e Spark - Perfil GitHub
-
-Luis Filipe Damiani- Implementação Apache Iceberg e Notebooks - Perfil GitHub
-
-Gianluca Andrade - Documentação MkDocs e Arquitetura - Perfil GitHub
-
-### Licença
-Este projeto está sob a licença MIT - veja o arquivo LICENSE.md para detalhes.
-
-### Referências
-
-Vídeos do canal DataWay BR
+Canal DataWay BR - Youtube
 
 Repositório Base: spark-delta (Prof. Jorge Silva)
 
 Repositório Base: spark-iceberg (Prof. Jorge Silva)
 
-Material de Apoio: Python para Engenharia de Dados - material de apoio.pdf
+Documentação Oficial Delta Lake
 
-Documentação Oficial do Apache Spark
+Documentação Oficial Apache Iceberg
 
-Documentação Oficial do Delta Lake
+## Licença: Este projeto está sob a licença MIT.
 
-Documentação Oficial do Apache Iceberg
