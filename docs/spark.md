@@ -11,6 +11,8 @@ Prover a engine de processamento distribuído responsável por executar operaç�
 ## Estrutura utilizada
 
 * **Diretório raiz de armazenamento dos dados:** `data`
+* **Notebooks:** `notebooks/`
+* O Spark lê e escreve dados a partir do diretório base configurado
 
 ---
 
@@ -46,32 +48,3 @@ spark.sql.catalog.local
 spark.sql.catalog.local.type
 spark.sql.catalog.local.warehouse
 ```
-
-### 3. Inserção incremental
-Adicionando um novo registro posteriormente.
-
-SQL
-```INSERT INTO delta_table VALUES ('Spark', 4);```
-
-### 4. Atualização de registros (UPDATE)
-Modificando um valor existente, operação antes complexa em Data Lakes tradicionais
-
-SQL
-```
-UPDATE delta_table
-SET valor = 99
-WHERE palavra = 'Dados';
-
-### 5. Exclusão de dados (DELETE)
-Removendo registros específicos da base.
-```
-SQL
-```DELETE FROM delta_table
-WHERE palavra = 'Engenharia';```
-
-### 6. Consulta de histórico (Time Travel)
-O Delta Lake mantém um log de transações. O comando abaixo permite ver todas as alterações feitas na tabela, quem fez e quando fez.
-
-SQL
-
-```DESCRIBE HISTORY delta_table;```
