@@ -1,0 +1,3 @@
+{"commitInfo":{"timestamp":1777211694621,"operation":"CREATE TABLE","operationParameters":{"isManaged":"false","description":null,"partitionBy":"[]","properties":"{}"},"isolationLevel":"Serializable","isBlindAppend":true,"operationMetrics":{},"engineInfo":"Apache-Spark/3.5.0 Delta-Lake/3.0.0","txnId":"5844b08e-076b-403a-9620-fc48d9bb932d"}}
+{"metaData":{"id":"9838cc59-a7c2-4175-a154-604fb535661e","format":{"provider":"parquet","options":{}},"schemaString":"{\"type\":\"struct\",\"fields\":[{\"name\":\"palavra\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"valor\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}}]}","partitionColumns":[],"configuration":{},"createdTime":1777211694571}}
+{"protocol":{"minReaderVersion":1,"minWriterVersion":2}}
