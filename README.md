@@ -6,7 +6,7 @@ Repositório para desenvolvimento do projeto da disciplina de Engenharia de Dado
 
 Abaixo está o diagrama arquitetural da pipeline desenvolvida para este projeto, mapeando o fluxo desde o ambiente de desenvolvimento até o armazenamento no Data Lakehouse.
 
-![Arquitetura da Pipeline de Dados](docs/imagens/arquitetura.svg)
+![Arquitetura da Pipeline de Dados](documentos/Imagens/arquitetura.svg)
 
 **Fluxo de Dados:**
 1. Os comandos DDL e DML são escritos em Python através do **Jupyter Lab**.
@@ -34,7 +34,7 @@ bash
 ```
 git clone https://github.com/brunomonteirobonifacio/projeto-engenharia-dados-satc.git
 cd projeto-engenharia-dados-satc
-'''
+```
 
 ### 2. Configurar o ambiente virtual com poetry
 Instale as dependências (PySpark, Jupyter, MkDocs, etc.):
@@ -48,31 +48,31 @@ poetry install
 O projeto utiliza o Docker para garantir que todo o ecossistema de dados rode de forma isolada. Para levantar os contêineres:
 
 Bash
-'''
+```
 docker compose up -d
-'''
+```
 
 Após o comando finalizar, acesse o Jupyter Lab em seu navegador:
-'''
+```
 http://localhost:8888
-'''
+```
 ## Documentação (MkDocs)
 Toda a documentação técnica e explicação das operações ACID estão na pasta docs/.
 
 Para visualizar localmente:
 
 Bash
-'''
+```
 poetry run mkdocs serve
-'''
-Acesse: http://127.0.0.1:8000
+```
+Acesse: ```http://127.0.0.1:8000```
 
 ## Para publicar no GitHub Pages:
 
 Bash
-'''
+```
 poetry run mkdocs gh-deploy
-'''
+```
 
 ## Autores
 Bruno Monteiro - Implementação Delta Lake e Spark - GitHub
