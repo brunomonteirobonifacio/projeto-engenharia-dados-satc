@@ -1,133 +1,134 @@
-## Apache Spark com Delta Lake e Apache Iceberg
+# Projeto de Engenharia de Dados - SATC
 
-Projeto desenvolvido para a disciplina de Engenharia de Dados da UNISATC.
+Repositório para desenvolvimento do projeto da disciplina de Engenharia de Dados do curso de Engenharia de Software da UNISATC. O objetivo principal é implementar e documentar uma pipeline de dados utilizando **Apache Spark**, com suporte às tecnologias de Data Lakehouse **Delta Lake** e **Apache Iceberg**.
 
-O objetivo deste trabalho é demonstrar, na prática, o uso do Apache Spark integrado com as tecnologias Delta Lake e Apache Iceberg, realizando operações de manipulação de dados como INSERT, UPDATE e DELETE, além de versionamento de tabelas.
+## Desenho de Arquitetura
 
-## Integrantes
+Abaixo está o diagrama arquitetural da pipeline desenvolvida para este projeto, mapeando o fluxo desde o ambiente de desenvolvimento até o armazenamento no Data Lakehouse.
 
-Bruno – Configuração do ambiente e Apache Spark
-Gian – Implementação Delta Lake
-Luis Filipe – Implementação Apache Iceberg
+![Arquitetura da Pipeline de Dados](docs/imagens/arquitetura.svg)
 
-## Objetivo do projeto
+**Fluxo de Dados:**
+1. Os comandos DDL e DML são escritos em Python através do **Jupyter Lab**.
+2. O **Apache Spark (PySpark)** interpreta os comandos e atua como o motor de processamento.
+3. Os dados são persistidos localmente utilizando as camadas transacionais do **Delta Lake** e **Apache Iceberg**, garantindo operações ACID e versionamento.
 
-Implementar um ambiente com PySpark e Jupyter Notebook para:
-Criar tabelas utilizando Delta Lake e Apache Iceberg
+---
 
-## Executar operações de:
+## Pré-requisitos e ferramentas utilizadas
 
-INSERT
-UPDATE
-DELETE
-Demonstrar versionamento de dados
-Documentar todo o processo utilizando MkDocs
+* **Linguagem:** Python 3.11+
+* **Processamento de Dados:** Apache Spark (PySpark)
+* **Formatos de Tabela (Lakehouse):** Delta Lake e Apache Iceberg
+* **Ambiente de Desenvolvimento:** Jupyter Labs / Jupyter Notebook
+* **Gerenciamento de Pacotes:** `uv` (ou Poetry)
+* **Documentação:** MkDocs + mkdocstrings + mkdocs-material
 
-## Tecnologias utilizadas
+---
 
-Python 3.11
-Apache Spark 3.5
-PySpark
-Delta Lake
-Apache Iceberg
-Jupyter Notebook
-MkDocs
+## Instalação e Configuração do Ambiente
 
-## Estrutura do projeto
-.
-├── exemples/
-│   ├── delta_lake/
-        ├── spark-warehouse/
-        ├── data/
-            ├── delta_table/  # arquivos físicos do Delta Lake
-        ├── 1_estudo_delta_lake.ipynb
-│   └── apache_iceberg/
-        ├── 2_estudo_apache_iceberg.ipynb
-├── data/
-│   └── iceberg_warehouse/   # arquivos físicos do Apache Iceberg       
-├── docs/
-│   ├── index.md
-│   ├── iceberg.md
-│   ├── delta.md
-│   └── stylesheets/
-├── README.md
-└── mkdocs.yml
+Siga o passo a passo abaixo para reproduzir o ambiente localmente.
 
+### 1. Clonar o repositório
 
-Como reproduzir o ambiente
-1. Abrir o ambiente Linux (Ubuntu)
+```
+git clone https://github.com/brunomonteirobonifacio/projeto-engenharia-dados-satc.git
+cd projeto-engenharia-dados-satc
+'''
 
-O projeto foi executado em ambiente Linux com suporte a Docker e PySpark.
+### 2. Configurar o ambiente virtual com uv
+Crie o ambiente virtual, ative-o e instale as dependências (PySpark, Jupyter, MkDocs, etc.):
 
-2. Iniciar o Jupyter Notebook
-jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+# Criar ambiente virtual
 
-Acessar pelo navegador.
+'''
+uv venv
+'''
 
-3. Criar sessão Spark
-Iceberg
-from pyspark.sql import SparkSession
+# Ativar o ambiente (Linux/Mac)
+'''
+source .venv/bin/activate
+'''
 
-spark = SparkSession.builder \
-    .appName("Iceberg_Projeto") \
-    .config("spark.jars.packages", "org.apache.iceberg:iceberg-spark-runtime-3.5_2.12:1.5.0") \
-    .config("spark.sql.extensions", "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions") \
-    .config("spark.sql.catalog.local", "org.apache.iceberg.spark.SparkCatalog") \
-    .config("spark.sql.catalog.local.type", "hadoop") \
-    .config("spark.sql.catalog.local.warehouse", "/app/data/iceberg_warehouse") \
-    .getOrCreate()
-Delta Lake
-from pyspark.sql import SparkSession
+# Ativar o ambiente (Windows)
+# .venv\Scripts\activate
 
-spark = SparkSession.builder \
-    .appName("Delta_Projeto") \
-    .config("spark.jars.packages", "io.delta:delta-spark_2.12:3.2.0") \
-    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
-    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") \
-    .getOrCreate()
-Cenário da tabela
+# Instalar as dependências do projeto
+'''uv sync'''
 
-Foi utilizada uma tabela simples para simular dados:
+### 3. Executar o Jupyter Labs
+Com o ambiente ativado e as bibliotecas instaladas, inicie o Jupyter para rodar os arquivos .ipynb:
 
-palavra	valor
-Engenharia	1
-Dados	2
-Big Data	3
-Operações realizadas
-INSERT
-INSERT INTO tabela
-VALUES ('Spark', 4)
-UPDATE
-UPDATE tabela
-SET valor = 99
-WHERE palavra = 'Dados'
-DELETE
-DELETE FROM tabela
-WHERE palavra = 'Engenharia'
-Versionamento
-Iceberg
-SELECT * FROM local.db_teste.tabela_v1.snapshots
-Delta Lake
-DESCRIBE HISTORY delta_table
-Diferença observada entre Iceberg e Delta
-Iceberg gerencia metadados em arquivos próprios (snapshots)
-Delta Lake cria estrutura física de arquivos no diretório da tabela
-Ambos suportam versionamento e operações ACID
-Documentação (MkDocs)
+'''
+uv run jupyter lab
+'''
 
-A documentação completa do projeto está disponível na pasta docs/.
+Isso abrirá o Jupyter no seu navegador padrão. Acesse os arquivos referentes às implementações do Delta Lake e Apache Iceberg para ver os códigos (DDL, DML) em ação.
 
-Executar localmente:
-mkdocs serve
-Publicar:
-mkdocs gh-deploy
-Observações importantes
-O projeto deve ser executado com o Spark corretamente configurado com as dependências
-Caso ocorram erros, verificar:
-dependências (jars)
-caminhos de diretório
-versão do Spark
-Referências
-https://spark.apache.org/
-https://iceberg.apache.org/
-https://delta.io/
+### Documentação (MkDocs)
+Toda a documentação conceitual e a explicação das operações (INSERT, UPDATE, DELETE e Versionamento) está na pasta docs/.
+
+Para construir a documentação estática:
+
+'''
+uv run mkdocs build
+'''
+
+Para rodar o servidor local e visualizar a documentação:
+
+'''
+uv run mkdocs serve
+'''
+
+###Publicação (Deploy)
+A documentação está publicada via GitHub Pages. Para atualizar o site público após alguma alteração, utilize:
+'''
+uv run mkdocs gh-deploy
+'''
+
+### Colaboração
+Abra uma Issue para discutir sua nova feature ou reportar um bug.
+
+Crie uma Branch para a sua modificação:
+
+'''
+git checkout -b feature/nome-da-sua-feature
+'''
+
+Faça suas alterações e realize o commit seguindo o padrão Conventional Commits.
+Envie um Pull Request para a branch main.
+Aguarde revisão e merge.
+
+### Versão
+
+Utilizamos o SemVer para controle de versionamento.
+
+Versão Atual: 1.0.0 - Entrega inicial do projeto da disciplina de Engenharia de Dados.
+
+### Autores
+
+Bruno Monteiro - Implementação Delta Lake e Spark - Perfil GitHub
+
+Luis Filipe Damiani- Implementação Apache Iceberg e Notebooks - Perfil GitHub
+
+Gianluca Andrade - Documentação MkDocs e Arquitetura - Perfil GitHub
+
+### Licença
+Este projeto está sob a licença MIT - veja o arquivo LICENSE.md para detalhes.
+
+### Referências
+
+Vídeos do canal DataWay BR
+
+Repositório Base: spark-delta (Prof. Jorge Silva)
+
+Repositório Base: spark-iceberg (Prof. Jorge Silva)
+
+Material de Apoio: Python para Engenharia de Dados - material de apoio.pdf
+
+Documentação Oficial do Apache Spark
+
+Documentação Oficial do Delta Lake
+
+Documentação Oficial do Apache Iceberg
