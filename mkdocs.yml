@@ -1,6 +1,6 @@
-site_name: Projeto Engenharia de Dados - Bruno M, Gian A e Luis Filipe D
+site_name: Projeto Engenharia de Dados - Bruno M, Gianluca A e Luis Filipe D
 site_description: Pipeline com Apache Spark, Delta Lake e Apache Iceberg
-site_author: Bruno Monteiro, Gian Luca Andrade e Luis FIlipe Damiani
+site_author: Bruno Monteiro, Gianluca Andrade e Luis FIlipe Damiani
 site_url: https://github.com
 
 repo_name: Projeto Engenharia de Dados
@@ -42,7 +42,7 @@ extra:
       link: https://github.com
   generator: false
 
-copyright: Copyright &copy; 2026 - Bruno M, Gian A e Luis Filipe D - Todos os direitos reservados.
+copyright: Copyright &copy; 2026 - Bruno M, Gianluca A e Luis Filipe D - Todos os direitos reservados.
 
 # Ocultei extra_css e extra_javascript se você não os criou (para não dar erro 404). 
 # Se você tiver esses arquivos na pasta docs, pode descomentar abaixo:
