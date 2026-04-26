@@ -21,7 +21,7 @@ Abaixo está o diagrama arquitetural da pipeline desenvolvida para este projeto,
 * **Processamento de Dados:** Apache Spark (PySpark)
 * **Formatos de Tabela (Lakehouse):** Delta Lake e Apache Iceberg
 * **Ambiente de Desenvolvimento:** Jupyter Labs / Jupyter Notebook
-* **Gerenciamento de Pacotes:** `uv` (ou Poetry)
+* **Gerenciamento de Pacotes:** `Poetry`
 * **Documentação:** MkDocs + mkdocstrings + mkdocs-material
 
 ---
@@ -37,33 +37,19 @@ git clone https://github.com/brunomonteirobonifacio/projeto-engenharia-dados-sat
 cd projeto-engenharia-dados-satc
 ```
 
-### 2. Configurar o ambiente virtual com uv
-Crie o ambiente virtual, ative-o e instale as dependências (PySpark, Jupyter, MkDocs, etc.):
-
-# Criar ambiente virtual
-
-```
-uv venv
-```
-
-# Ativar o ambiente (Linux/Mac)
-```
-source .venv/bin/activate
-```
-
-# Ativar o ambiente (Windows)
-# .venv\Scripts\activate
+### 2. Configurar o ambiente virtual com poetry
+Instale as dependências (PySpark, Jupyter, MkDocs, etc.):
 
 # Instalar as dependências do projeto
 ```
-uv sync
+poetry install
 ```
 
 ### 3. Executar o Jupyter Labs
 Com o ambiente ativado e as bibliotecas instaladas, inicie o Jupyter para rodar os arquivos .ipynb:
 
 ```
-uv run jupyter lab
+poetry run jupyter lab
 ```
 
 Isso abrirá o Jupyter no seu navegador padrão. Acesse os arquivos referentes às implementações do Delta Lake e Apache Iceberg para ver os códigos (DDL, DML) em ação.
@@ -74,19 +60,19 @@ Toda a documentação conceitual e a explicação das operações (INSERT, UPDAT
 Para construir a documentação estática:
 
 ```
-uv run mkdocs build
+poetry run mkdocs build
 ```
 
 Para rodar o servidor local e visualizar a documentação:
 
 ```
-uv run mkdocs serve
+poetry run mkdocs serve
 ```
 
 ### Publicação (Deploy)
 A documentação está publicada via GitHub Pages. Para atualizar o site público após alguma alteração, utilize:
 ```
-uv run mkdocs gh-deploy
+poetry run mkdocs gh-deploy
 ```
 
 ### Colaboração
