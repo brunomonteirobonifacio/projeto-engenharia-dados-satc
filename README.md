@@ -85,13 +85,8 @@ Gianluca Andrade - Documentação MkDocs e Arquitetura - GitHub
 
 Canal DataWay BR - Youtube
 
-Repositório Base: spark-delta (Prof. Jorge Silva)
-
-Repositório Base: spark-iceberg (Prof. Jorge Silva)
-
 Documentação Oficial Delta Lake
 
 Documentação Oficial Apache Iceberg
 
-## Licença: Este projeto está sob a licença MIT.
 
