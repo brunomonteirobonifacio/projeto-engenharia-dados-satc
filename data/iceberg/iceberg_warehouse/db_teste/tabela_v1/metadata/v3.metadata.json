@@ -1,9 +1,9 @@
 {
   "format-version" : 2,
-  "table-uuid" : "a28f3f1c-4e09-4170-8660-edf60a9ce56a",
-  "location" : "/app/data/iceberg_warehouse/db_teste/tabela_v1",
+  "table-uuid" : "a6a83c85-c5ed-46ef-8ada-a8d1490d2fda",
+  "location" : "/app/data/iceberg/iceberg_warehouse/db_teste/tabela_v1",
   "last-sequence-number" : 3,
-  "last-updated-ms" : 1776706739050,
+  "last-updated-ms" : 1777223127987,
   "last-column-id" : 2,
   "current-schema-id" : 0,
   "schemas" : [ {
@@ -36,20 +36,20 @@
     "owner" : "root",
     "write.parquet.compression-codec" : "zstd"
   },
-  "current-snapshot-id" : 5886267370420308067,
+  "current-snapshot-id" : 6968415655614766148,
   "refs" : {
     "main" : {
-      "snapshot-id" : 5886267370420308067,
+      "snapshot-id" : 6968415655614766148,
       "type" : "branch"
     }
   },
   "snapshots" : [ {
     "sequence-number" : 1,
-    "snapshot-id" : 3150570446398736522,
-    "timestamp-ms" : 1776706737225,
+    "snapshot-id" : 5703929043029109960,
+    "timestamp-ms" : 1777223127422,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1776706729351",
+      "spark.app.id" : "local-1777223125816",
       "added-data-files" : "3",
       "added-records" : "3",
       "added-files-size" : "2123",
@@ -61,16 +61,16 @@
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "/app/data/iceberg_warehouse/db_teste/tabela_v1/metadata/snap-3150570446398736522-1-db96e9e9-8ce9-4ed9-9126-5284159e1005.avro",
+    "manifest-list" : "/app/data/iceberg/iceberg_warehouse/db_teste/tabela_v1/metadata/snap-5703929043029109960-1-b09d8e04-c677-4f04-acba-7af78c992bbc.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 2,
-    "snapshot-id" : 3387851444569454316,
-    "parent-snapshot-id" : 3150570446398736522,
-    "timestamp-ms" : 1776706737992,
+    "snapshot-id" : 245569009277018274,
+    "parent-snapshot-id" : 5703929043029109960,
+    "timestamp-ms" : 1777223127647,
     "summary" : {
       "operation" : "append",
-      "spark.app.id" : "local-1776706729351",
+      "spark.app.id" : "local-1777223125816",
       "added-data-files" : "1",
       "added-records" : "1",
       "added-files-size" : "672",
@@ -82,16 +82,16 @@
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "/app/data/iceberg_warehouse/db_teste/tabela_v1/metadata/snap-3387851444569454316-1-6dae5164-9574-4190-bbae-98b812e77f37.avro",
+    "manifest-list" : "/app/data/iceberg/iceberg_warehouse/db_teste/tabela_v1/metadata/snap-245569009277018274-1-d860460c-1a18-4ce8-b420-8469e140c07c.avro",
     "schema-id" : 0
   }, {
     "sequence-number" : 3,
-    "snapshot-id" : 5886267370420308067,
-    "parent-snapshot-id" : 3387851444569454316,
-    "timestamp-ms" : 1776706739050,
+    "snapshot-id" : 6968415655614766148,
+    "parent-snapshot-id" : 245569009277018274,
+    "timestamp-ms" : 1777223127987,
     "summary" : {
       "operation" : "overwrite",
-      "spark.app.id" : "local-1776706729351",
+      "spark.app.id" : "local-1777223125816",
       "added-data-files" : "1",
       "deleted-data-files" : "1",
       "added-records" : "1",
@@ -106,26 +106,26 @@
       "total-position-deletes" : "0",
       "total-equality-deletes" : "0"
     },
-    "manifest-list" : "/app/data/iceberg_warehouse/db_teste/tabela_v1/metadata/snap-5886267370420308067-1-e4a0139e-b44b-4b3d-a00c-cbec1af350ea.avro",
+    "manifest-list" : "/app/data/iceberg/iceberg_warehouse/db_teste/tabela_v1/metadata/snap-6968415655614766148-1-2ee9ea04-1789-48d8-b147-e231d31e6354.avro",
     "schema-id" : 0
   } ],
   "statistics" : [ ],
   "partition-statistics" : [ ],
   "snapshot-log" : [ {
-    "timestamp-ms" : 1776706737225,
-    "snapshot-id" : 3150570446398736522
+    "timestamp-ms" : 1777223127422,
+    "snapshot-id" : 5703929043029109960
   }, {
-    "timestamp-ms" : 1776706737992,
-    "snapshot-id" : 3387851444569454316
+    "timestamp-ms" : 1777223127647,
+    "snapshot-id" : 245569009277018274
   }, {
-    "timestamp-ms" : 1776706739050,
-    "snapshot-id" : 5886267370420308067
+    "timestamp-ms" : 1777223127987,
+    "snapshot-id" : 6968415655614766148
   } ],
   "metadata-log" : [ {
-    "timestamp-ms" : 1776706737225,
-    "metadata-file" : "/app/data/iceberg_warehouse/db_teste/tabela_v1/metadata/v1.metadata.json"
+    "timestamp-ms" : 1777223127422,
+    "metadata-file" : "/app/data/iceberg/iceberg_warehouse/db_teste/tabela_v1/metadata/v1.metadata.json"
   }, {
-    "timestamp-ms" : 1776706737992,
-    "metadata-file" : "/app/data/iceberg_warehouse/db_teste/tabela_v1/metadata/v2.metadata.json"
+    "timestamp-ms" : 1777223127647,
+    "metadata-file" : "/app/data/iceberg/iceberg_warehouse/db_teste/tabela_v1/metadata/v2.metadata.json"
   } ]
 }
