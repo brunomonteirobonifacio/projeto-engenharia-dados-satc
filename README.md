@@ -35,34 +35,36 @@ Siga o passo a passo abaixo para reproduzir o ambiente localmente.
 ```
 git clone https://github.com/brunomonteirobonifacio/projeto-engenharia-dados-satc.git
 cd projeto-engenharia-dados-satc
-'''
+```
 
 ### 2. Configurar o ambiente virtual com uv
 Crie o ambiente virtual, ative-o e instale as dependências (PySpark, Jupyter, MkDocs, etc.):
 
 # Criar ambiente virtual
 
-'''
+```
 uv venv
-'''
+```
 
 # Ativar o ambiente (Linux/Mac)
-'''
+```
 source .venv/bin/activate
-'''
+```
 
 # Ativar o ambiente (Windows)
 # .venv\Scripts\activate
 
 # Instalar as dependências do projeto
-'''uv sync'''
+```
+uv sync
+```
 
 ### 3. Executar o Jupyter Labs
 Com o ambiente ativado e as bibliotecas instaladas, inicie o Jupyter para rodar os arquivos .ipynb:
 
-'''
+```
 uv run jupyter lab
-'''
+```
 
 Isso abrirá o Jupyter no seu navegador padrão. Acesse os arquivos referentes às implementações do Delta Lake e Apache Iceberg para ver os códigos (DDL, DML) em ação.
 
@@ -71,30 +73,30 @@ Toda a documentação conceitual e a explicação das operações (INSERT, UPDAT
 
 Para construir a documentação estática:
 
-'''
+```
 uv run mkdocs build
-'''
+```
 
 Para rodar o servidor local e visualizar a documentação:
 
-'''
+```
 uv run mkdocs serve
-'''
+```
 
-###Publicação (Deploy)
+### Publicação (Deploy)
 A documentação está publicada via GitHub Pages. Para atualizar o site público após alguma alteração, utilize:
-'''
+```
 uv run mkdocs gh-deploy
-'''
+```
 
 ### Colaboração
 Abra uma Issue para discutir sua nova feature ou reportar um bug.
 
 Crie uma Branch para a sua modificação:
 
-'''
+```
 git checkout -b feature/nome-da-sua-feature
-'''
+```
 
 Faça suas alterações e realize o commit seguindo o padrão Conventional Commits.
 Envie um Pull Request para a branch main.
