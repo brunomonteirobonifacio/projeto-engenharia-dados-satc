@@ -6,7 +6,7 @@ Repositório para desenvolvimento do projeto da disciplina de Engenharia de Dado
 
 Abaixo está o diagrama arquitetural da pipeline desenvolvida para este projeto, mapeando o fluxo desde o ambiente de desenvolvimento até o armazenamento no Data Lakehouse.
 
-![Arquitetura da Pipeline de Dados](documentos/Imagens/arquitetura.svg)
+![Arquitetura da Pipeline de Dados](docs/Imagens/arquitetura.svg)
 
 **Fluxo de Dados:**
 1. Os comandos DDL e DML são escritos em Python através do **Jupyter Lab**.
