@@ -11,7 +11,7 @@ Demonstrar o uso do Delta Lake integrado ao Apache Spark para operações transa
 ## Estrutura utilizada
 
 * **Tabela:** `delta_table`
-* **Local de armazenamento:** `data/delta_table`
+* **Local de armazenamento:** `data/data_lake/delta_table`
 
 ---
 
